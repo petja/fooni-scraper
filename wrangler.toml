@@ -1,0 +1,10 @@
+name = "fooni-scraper"
+main = "src/index.ts"
+compatibility_date = "2022-07-15"
+
+kv_namespaces = [
+  { binding = "FOONI_SCRAPER", id = "b393370fc04648379b3f3055cf8a44f7" }
+]
+
+[triggers]
+crons = [ "*/30 * * * *" ]

@@ -141,6 +141,12 @@ export async function retrieveReservationStats(sessionId: string) {
       instagram: 'jerebyman',
       minutes: 10,
     },
+    schimmell: {
+      id: 'schimmell',
+      name: 'Emil Bech',
+      instagram: 'schimmell',
+      minutes: 15,
+    },
   }
 
   for (const reservation of responseBody) {

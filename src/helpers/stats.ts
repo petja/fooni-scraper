@@ -87,7 +87,7 @@ export async function retrieveReservationStats(sessionId: string) {
       id: 'leenavaisto',
       name: 'Leena',
       instagram: 'leenavaisto',
-      minutes: 200,
+      minutes: 215,
     },
     '0': {
       id: '0',

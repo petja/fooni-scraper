@@ -150,8 +150,14 @@ export async function retrieveReservationStats(sessionId: string) {
   }
 
   for (const reservation of responseBody) {
-    const minutes = Number(reservation.origin_minutes.slice(0, -1))
-    totalTime += Math.round(minutes)
+    const match = reservation.origin_minutes.match(/^(\d+)'(\d*)/)
+
+    if (!match) {
+      throw new Error('Invalid format for "origin_minutes"')
+    }
+
+    const minutes = Number(match[1]) + Number(match[2]) / 60
+    totalTime += minutes
 
     if (!coachesMap[reservation.coach_id]) {
       coachesMap[reservation.coach_id] = {

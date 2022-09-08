@@ -6,7 +6,7 @@ interface Reservation {
   id: string
   origin_minutes: `${string}'`
   coach_id: string
-  timeslöt: string
+  timeslot: string
 }
 
 function createHeaders(sessionId: string) {
@@ -92,7 +92,7 @@ export async function retrieveReservationStats(sessionId: string) {
     '0': {
       id: '0',
       name: 'No Coaching',
-      minutes: -120,
+      minutes: -130,
     },
     '54': {
       id: '54',
@@ -141,15 +141,33 @@ export async function retrieveReservationStats(sessionId: string) {
       instagram: 'jerebyman',
       minutes: 10,
     },
+    '780': {
+      id: '780',
+      name: 'Eero',
+      instagram: 'supereero',
+      minutes: 0,
+    },
     schimmell: {
       id: 'schimmell',
       name: 'Emil Bech',
       instagram: 'schimmell',
       minutes: 15,
     },
+    iiriserkkila: {
+      id: 'iiriserkkila',
+      name: 'Iiris',
+      instagram: 'iiriserkkila',
+      minutes: 10,
+    },
   }
 
   for (const reservation of responseBody) {
+    const timeslot = new Date(Number(reservation.timeslot) * 1000)
+
+    if (timeslot > new Date()) {
+      continue
+    }
+
     const match = reservation.origin_minutes.match(/^(\d+)'(\d*)/)
 
     if (!match) {

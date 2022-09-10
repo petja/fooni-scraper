@@ -9,6 +9,14 @@ interface Reservation {
   timeslot: string
 }
 
+interface Coach {
+  id: string
+  name: string
+  instagram?: string
+  minutes: number
+  hide?: boolean
+}
+
 function createHeaders(sessionId: string) {
   const headers = new Headers()
   headers.set('Content-Type', 'application/x-www-form-urlencoded')
@@ -79,10 +87,7 @@ export async function retrieveReservationStats(sessionId: string) {
   // VäistöCoaching
   let totalTime = 240
 
-  const coachesMap: Record<
-    string,
-    { id: string; name: string; instagram?: string; minutes: number }
-  > = {
+  const coachesMap: Record<string, Coach> = {
     leenavaisto: {
       id: 'leenavaisto',
       name: 'Leena',
@@ -93,6 +98,7 @@ export async function retrieveReservationStats(sessionId: string) {
       id: '0',
       name: 'No Coaching',
       minutes: -130,
+      hide: true,
     },
     '54': {
       id: '54',
@@ -190,6 +196,8 @@ export async function retrieveReservationStats(sessionId: string) {
 
   return {
     totalTime,
-    coaches: Object.values(coachesMap).sort((a, b) => b.minutes - a.minutes),
+    coaches: Object.values(coachesMap)
+      .filter((coach) => !coach.hide)
+      .sort((a, b) => b.minutes - a.minutes),
   }
 }

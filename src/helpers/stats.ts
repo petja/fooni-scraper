@@ -92,12 +92,18 @@ export async function retrieveReservationStats(sessionId: string) {
       id: 'leenavaisto',
       name: 'Leena',
       instagram: 'leenavaisto',
-      minutes: 230,
+      minutes: 220,
+    },
+    maurivaisto: {
+      id: 'maurivaisto',
+      name: 'Mauri Väistö',
+      instagram: 'maurivaisto',
+      minutes: 20,
     },
     '0': {
       id: '0',
       name: 'No Coaching',
-      minutes: -190,
+      minutes: -235,
       hide: true,
     },
     '54': {
@@ -139,7 +145,7 @@ export async function retrieveReservationStats(sessionId: string) {
       id: '42256',
       name: 'Aaro',
       instagram: 'aarohilli',
-      minutes: 110,
+      minutes: 155,
     },
     '48554': {
       id: '48554',

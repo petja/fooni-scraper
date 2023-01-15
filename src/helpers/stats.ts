@@ -103,7 +103,7 @@ export async function retrieveReservationStats(sessionId: string) {
     '0': {
       id: '0',
       name: 'No Coaching',
-      minutes: -360,
+      minutes: -470,
       hide: true,
     },
     '54': {
@@ -145,13 +145,13 @@ export async function retrieveReservationStats(sessionId: string) {
       id: '42256',
       name: 'Aaro',
       instagram: 'aarohilli',
-      minutes: 185,
+      minutes: 220,
     },
     '48554': {
       id: '48554',
       name: 'Byman',
       instagram: 'jerebyman',
-      minutes: 105,
+      minutes: 185,
     },
     '780': {
       id: '780',
